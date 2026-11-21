@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 500" width="860" height="500" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#57606a"/>
+    </marker>
+    <style>
+      .box   { fill: #ffffff; stroke: #d0d7de; stroke-width: 1.5; rx: 8; }
+      .boxhl { fill: #f6f8fa; stroke: #0969da; stroke-width: 2; rx: 8; }
+      .t     { fill: #24292f; font-size: 15px; font-weight: 600; }
+      .s     { fill: #57606a; font-size: 12.5px; }
+      .lbl   { fill: #57606a; font-size: 11.5px; }
+      .line  { stroke: #57606a; stroke-width: 1.5; fill: none; marker-end: url(#arrow); }
+      .linen { stroke: #57606a; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="860" height="500" fill="#ffffff"/>
+
+  <!-- 上位机 -->
+  <rect class="box" x="30" y="60" width="170" height="96"/>
+  <text class="t" x="115" y="88" text-anchor="middle">Host PC</text>
+  <text class="s" x="115" y="110" text-anchor="middle">Python + pyserial</text>
+  <text class="s" x="115" y="130" text-anchor="middle">arm_teacher.py</text>
+  <text class="s" x="115" y="148" text-anchor="middle">record / replay</text>
+
+  <!-- STM32 -->
+  <rect class="boxhl" x="280" y="45" width="250" height="215"/>
+  <text class="t" x="405" y="72" text-anchor="middle">STM32F103C8T6</text>
+  <text class="s" x="405" y="95" text-anchor="middle">bare-metal, 20 ms tick</text>
+  <line class="linen" x1="305" y1="108" x2="505" y2="108" stroke="#d0d7de"/>
+  <text class="s" x="405" y="132" text-anchor="middle">kinematics.c  (pure C)</text>
+  <text class="s" x="405" y="152" text-anchor="middle">inverse kinematics</text>
+  <text class="s" x="405" y="180" text-anchor="middle">servo.c   PWM ramp</text>
+  <text class="s" x="405" y="208" text-anchor="middle">step.c    pulse + homing FSM</text>
+  <text class="s" x="405" y="236" text-anchor="middle">app_main.c  command parser</text>
+
+  <!-- 舵机 -->
+  <rect class="box" x="620" y="45" width="200" height="80"/>
+  <text class="t" x="720" y="72" text-anchor="middle">MG996R × 4</text>
+  <text class="s" x="720" y="94" text-anchor="middle">big arm / small arm</text>
+  <text class="s" x="720" y="112" text-anchor="middle">wrist / gripper</text>
+
+  <!-- 驱动器 -->
+  <rect class="box" x="620" y="155" width="200" height="76"/>
+  <text class="t" x="720" y="182" text-anchor="middle">TB6600 driver</text>
+  <text class="s" x="720" y="204" text-anchor="middle">8 microstep, 1.0 A</text>
+
+  <!-- 步进 + 丝杆 -->
+  <rect class="box" x="620" y="261" width="200" height="76"/>
+  <text class="t" x="720" y="288" text-anchor="middle">42 stepper + T8 screw</text>
+  <text class="s" x="720" y="310" text-anchor="middle">0.0025 mm / pulse</text>
+
+  <!-- 限位 -->
+  <rect class="box" x="280" y="330" width="250" height="72"/>
+  <text class="t" x="405" y="357" text-anchor="middle">Inductive limit switch</text>
+  <text class="s" x="405" y="379" text-anchor="middle">24 V NPN → divider → 2.2 V</text>
+
+  <!-- 电源 -->
+  <rect class="box" x="30" y="330" width="170" height="72"/>
+  <text class="t" x="115" y="357" text-anchor="middle">24 V 5 A</text>
+  <text class="s" x="115" y="379" text-anchor="middle">+ dual buck 6 V / 5 V</text>
+
+  <!-- 连线 -->
+  <line class="line" x1="200" y1="108" x2="278" y2="108"/>
+  <text class="lbl" x="239" y="99" text-anchor="middle">UART</text>
+  <text class="lbl" x="239" y="128" text-anchor="middle">115200</text>
+
+  <line class="line" x1="530" y1="85" x2="618" y2="85"/>
+  <text class="lbl" x="574" y="76" text-anchor="middle">PWM ×4</text>
+
+  <line class="line" x1="530" y1="193" x2="618" y2="193"/>
+  <text class="lbl" x="574" y="184" text-anchor="middle">PUL / DIR / ENA</text>
+
+  <line class="line" x1="720" y1="231" x2="720" y2="259"/>
+  <text class="lbl" x="770" y="249" text-anchor="middle">A/B phase</text>
+
+  <line class="line" x1="405" y1="330" x2="405" y2="262"/>
+  <text class="lbl" x="455" y="300" text-anchor="middle">EXTI falling edge</text>
+
+  <line class="line" x1="200" y1="366" x2="278" y2="366"/>
+  <text class="lbl" x="239" y="357" text-anchor="middle">24 V</text>
+
+  <!-- 图例说明 -->
+  <text class="lbl" x="30" y="452">Blue box = main controller.  All actuator paths are open-loop; the limit switch is the only feedback.</text>
+  <text class="lbl" x="30" y="472">Homing = back off 5 mm → seek down 10 mm/s → retreat 3 mm → re-zero. Repeatability 0.0125 mm (10 runs).</text>
+</svg>
