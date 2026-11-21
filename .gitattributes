@@ -1,0 +1,17 @@
+* text=auto
+
+# 脚本换行符
+*.sh  text eol=lf
+*.bat text eol=crlf
+
+# 二进制，不要参与 diff
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.gif  binary
+*.mp4  binary
+*.pdf  binary
+
+# 让 GitHub 语言统计识别 STM32 工程文件
+*.ioc linguist-detectable=true

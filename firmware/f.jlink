@@ -1,0 +1,8 @@
+si SWD
+speed 100
+device STM32F103C8
+connect
+loadfile MDK-ARM/Arm/Arm.hex
+r
+g
+exit

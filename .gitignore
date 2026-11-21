@@ -1,0 +1,47 @@
+# ---------- Keil MDK 编译产物 ----------
+firmware/MDK-ARM/Arm/
+firmware/MDK-ARM/DebugConfig/
+firmware/MDK-ARM/RTE/
+*.uvguix.*
+*.uvoptx
+*.uvprojx.bak_*
+*.bak_*
+*.lst
+*.map
+*.axf
+*.hex
+*.bin
+*.o
+*.d
+*.crf
+*.dep
+*.lnp
+*.sct
+*.htm
+*.iex
+*.build_log.htm
+JLinkLog.txt
+JLinkSettings.ini
+
+# ---------- 系统 / 编辑器 ----------
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.lnk
+
+# ---------- 临时文件 ----------
+*.tmp
+*.log
+~$*
+*.7z
+*.rar
+*.zip
+
+# ---------- 隐私：绝对不能进仓库 ----------
+secrets.h
+wifi_config.h
+*.pem
+*.key
+.env
