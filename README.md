@@ -1,7 +1,3 @@
-![banner](assets/banner.png)
-
-<!-- ↑ 待补：横幅图 1200×300。没有设计资源就用成品实拍裁 16:9 -->
-
 # 立柱式 SCARA 码垛机械臂
 
 一台自制的四轴 SCARA 码垛机械臂：STM32F103 跑平面二连杆逆运动学与实时运动控制，
@@ -18,15 +14,19 @@ PC 上位机做示教-复现。**重复定位精度 0.0125mm，搬运落点误�
 
 ## 演示
 
-| 整机 | 抓取动作 |
-|---|---|
-| ![整机](assets/photo-front.webp) | ![演示](assets/demo.gif) |
-| <!-- 待补：整机正面照 --> | <!-- 待补：抓取 GIF，≤5MB --> |
+[![整机](assets/photo-front.webp)](https://b23.tv/tC1w0Os)
 
-📺 完整视频：[B 站](#) <!-- 待补：上传后贴链接 -->
+📺 **点图看演示视频**：[B 站 · SCARA 立柱式四轴码垛机械臂 平面搬运测试](https://b23.tv/tC1w0Os)
 
-<!-- 待补：夹爪特写 assets/photo-gripper.webp -->
-<!-- 待补：步进驱动器与接线 assets/photo-driver.webp -->
+从左到右：立柱滑台（T8 丝杆 + 42 步进 + 编码器）、大臂舵机、小臂舵机、腕转舵机、平行夹爪。
+黄色卷尺是临时贴的行程标尺，用来量 Z 轴实际可用高度。
+
+## 硬件细节
+
+| 步进驱动器 | 电源与降压 | 主控接线 |
+|---|---|---|
+| ![driver](assets/photo-driver.webp) | ![power](assets/photo-power.webp) | ![mcu](assets/photo-mcu.webp) |
+| TB6600 类，拨码 `010101` = 8 细分 / 1.0A | 24V 输入，双路降压供电舵机 | STM32F103 核心板 + 限位分压板 |
 
 ## 亮点
 
